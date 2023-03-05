@@ -1,0 +1,353 @@
+.award-title {
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  margin: -8px -8px 0 -8px;
+}
+.award-title > h2 {
+  font-family: "PT Serif";
+  font-size: 20px;
+  font-weight: 200;
+  color: white;
+  letter-spacing: 1px;
+}
+.section_title > h2 {
+  color: white;
+  letter-spacing: 1px;
+  font-family: "PT Serif";
+  font-size: 40px;
+  font-weight: 500;
+  margin: 50px 50px;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.categorySec {
+  background-color: #210e0a;
+  height: 91vh;
+  overflow: hidden;
+  margin: 0 -8px 0 -8px;
+}
+.innerDiv {
+  position: relative;
+  min-height: 90vh;
+  max-height: 90vh;
+}
+.awardsCategoryMainnnn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.awardsCategoryMainnnn > :is(h2, h3, p) {
+  position: absolute;
+  z-index: 12;
+  color: white;
+}
+.awardsCategoryMainnnn > h2 {
+  top: 10%;
+  left: 5%;
+  font-size: 3rem;
+}
+.awardsCategoryMainnnn > h3 {
+  top: 35%;
+  left: 8%;
+  font-size: clamp(1.2rem, 5vh, 2.6rem);
+  font-weight: 400;
+  transition: 1.2s;
+}
+.awardsCategoryMainnnn > p {
+  top: 45%;
+  left: 8%;
+  width: 40ch;
+  font-size: clamp(0.7rem, 3.4vh, 1rem);
+  font-weight: 200;
+}
+.onScreenHeading {
+  transform: translateX(0);
+  opacity: 1;
+  transition-timing-function: ease-in;
+}
+.offScreenHeading {
+  opacity: 0;
+  transform: translateX(-50vw);
+  transition-timing-function: ease-out;
+}
+.clippedCircle {
+  --size: 140vh;
+  border-radius: 100%;
+  height: var(--size);
+  width: var(--size);
+  background-color: #fff5ec;
+  position: absolute;
+  bottom: 10%;
+  right: -14%;
+  z-index: 10;
+  overflow: hidden;
+}
+.ellipseDashed {
+  height: calc(var(--size) * 0.45);
+  position: absolute;
+  bottom: 0;
+  left: 48%;
+  transform: translate(-50%, 0) rotate(0);
+  transform-origin: bottom;
+  transition: 0.8s;
+  z-index: 5;
+}
+.ellipseDashed.rotate30 {
+  transform: translate(-50%, 0) rotate(15deg);
+}
+.ellipseDashed.rotate60 {
+  transform: translate(-50%, 0) rotate(30deg);
+}
+.productContainer {
+  --sizeProd: calc(var(--size) * 0.8);
+  height: var(--sizeProd);
+  width: var(--sizeProd);
+  border-radius: 50%;
+  z-index: 6;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  perspective: 50vh;
+}
+.productImage {
+  --tiltRectifier: 64deg;
+  --tiltAngle: calc(var(--tilt) - var(--tiltRectifier));
+  --rotationTime: 1s;
+  --inwards: -25vh;
+  min-height: calc(var(--size) * 0.11);
+  height: calc(var(--size) * 0.11);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(var(--tiltAngle))
+    translateY(calc(-1 * (var(--sizeProd) / 2)));
+}
+.productImage.rotate0 {
+  animation: rotate0 var(--rotationTime) ease-in forwards;
+}
+@keyframes rotate0 {
+  0% {
+    transform: translate(-50%, -50%) rotate(calc(var(--tiltAngle) - 120deg))
+      translateY(calc(-1 * (var(--sizeProd) / 2)));
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(calc(var(--tiltAngle) - 60deg))
+      translateY(calc(-1 * (var(--sizeProd) / 2) - var(--inwards)));
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(calc(var(--tiltAngle) + 0deg))
+      translateY(calc(-1 * (var(--sizeProd) / 2)));
+  }
+}
+.productImage.rotate60 {
+  animation: rotate60 var(--rotationTime) ease-in forwards;
+}
+@keyframes rotate60 {
+  0% {
+    transform: translate(-50%, -50%) rotate(calc(var(--tiltAngle) + 0deg))
+      translateY(calc(-1 * (var(--sizeProd) / 2)));
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(calc(var(--tiltAngle) + 60deg))
+      translateY(calc(-1 * (var(--sizeProd) / 2) - var(--inwards)));
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(calc(var(--tiltAngle) + 120deg))
+      translateY(calc(-1 * (var(--sizeProd) / 2)));
+  }
+}
+.productImage.rotate120 {
+  animation: rotate120 var(--rotationTime) ease-in forwards;
+}
+@keyframes rotate120 {
+  0% {
+    transform: translate(-50%, -50%) rotate(calc(var(--tiltAngle) + 120deg))
+      translateY(calc(-1 * (var(--sizeProd) / 2)));
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(calc(var(--tiltAngle) + 180deg))
+      translateY(calc(-1 * (var(--sizeProd) / 2) - var(--inwards)));
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(calc(var(--tiltAngle) + 240deg))
+      translateY(calc(-1 * (var(--sizeProd) / 2)));
+  }
+}
+
+.productContainer > .brandLogo {
+  --animation-duration: 0.8s;
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(0deg);
+
+  height: 30vh;
+  transform-origin: center;
+  transform-style: preserve-3d;
+
+  transition: 0.6s;
+}
+.productContainer > .goDown {
+  /* transform: translate(-50%, -50%) rotateX(0deg); */
+  animation: goDown var(--animation-duration) ease-in forwards;
+}
+@keyframes goDown {
+  0% {
+    transform: translate(-50%, -50%) rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 10%) rotateX(80deg) scale(0.4);
+    opacity: 0;
+  }
+}
+.productContainer > .comeUp {
+  transform: translate(-50%, -50%) rotateX(0deg);
+  animation: comeUp var(--animation-duration) ease-in forwards;
+}
+@keyframes comeUp {
+  100% {
+    transform: translate(-50%, -50%) rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  0% {
+    transform: translate(-50%, 0%) rotateX(80deg) scale(0.4);
+    opacity: 0;
+  }
+}
+.frontText {
+  animation: categoryText 1s ease-in forwards;
+  opacity: 1;
+  margin-top: 30px;
+  font-family: "PT Serif";
+  letter-spacing: 1px;
+}
+p{
+  margin-top: 30px;
+  font-family: "PT Serif";
+  letter-spacing: 1px;
+}
+.behindText {
+  animation: categoryText 0.5s ease-out reverse forwards;
+}
+@keyframes categoryText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rise {
+  0% {
+    bottom: -100px;
+    transform: translateX(0);
+  }
+  50% {
+    transform: translate(100px);
+  }
+  100% {
+    bottom: 1080px;
+    transform: translateX(-200px);
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------------------- */
+.bubbles {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  width: 40px;
+  height: 40px;
+  background: #f2cd82;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: rise 10s infinite ease-in;
+}
+.bubble:nth-child(1) {
+  width: 40px;
+  height: 40px;
+  left: 10%;
+  animation-duration: 8s;
+}
+.bubble:nth-child(2) {
+  width: 20px;
+  height: 20px;
+  left: 20%;
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+.bubble:nth-child(3) {
+  width: 50px;
+  height: 50px;
+  left: 35%;
+  animation-duration: 7s;
+  animation-delay: 2s;
+}
+.bubble:nth-child(4) {
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  animation-duration: 11s;
+  animation-delay: 0s;
+}
+.bubble:nth-child(5) {
+  width: 35px;
+  height: 35px;
+  left: 55%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+.bubble:nth-child(6) {
+  width: 45px;
+  height: 45px;
+  left: 65%;
+  animation-duration: 8s;
+  animation-delay: 3s;
+}
+.bubble:nth-child(7) {
+  width: 90px;
+  height: 90px;
+  left: 70%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+.bubble:nth-child(8) {
+  width: 25px;
+  height: 25px;
+  left: 80%;
+  animation-duration: 6s;
+  animation-delay: 2s;
+}
+.bubble:nth-child(9) {
+  width: 15px;
+  height: 15px;
+  left: 70%;
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+.bubble:nth-child(10) {
+  width: 90px;
+  height: 90px;
+  left: 25%;
+  animation-duration: 10s;
+  animation-delay: 4s;
+}
